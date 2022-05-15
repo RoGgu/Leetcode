@@ -9,19 +9,10 @@ public:
             if (nums[i] == 1)
                 cnt++;
             else
-            {
-                if (cnt > maxCnt)
-                    maxCnt = cnt;
-
                 cnt = 0;
 
-                if (nums.size() - i <= maxCnt)
-                    break;
-            }
+            maxCnt = max(maxCnt, cnt);
         }
-
-        if (cnt > maxCnt)
-            maxCnt = cnt;
 
         return maxCnt;
     }
