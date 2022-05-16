@@ -2,19 +2,21 @@ class Solution {
 public:
     void duplicateZeros(vector<int>& arr) 
     {
+        int shift = count(begin(arr), end(arr), 0);
+        int size = arr.size();
 
-        for (int i = arr.size() - 2; i >= 0; i--)
+        for (int i = arr.size() - 1; i >= 0; i--)
         {
             if (arr[i] == 0)
+                shift--;
+
+            if (i + shift < size)
             {
-                int num = arr[i + 1];
-                for (int j = i + 2; j < arr.size(); j++)
+                arr[i + shift] = arr[i];
+                if (arr[i] == 0 && i + shift +1  < size)
                 {
-                    int tmp = arr[j];
-                    arr[j] = num;
-                    num = tmp;
+                    arr[i + shift + 1] = 0;
                 }
-                arr[i + 1] = 0;
             }
         }
     }
