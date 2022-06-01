@@ -27,6 +27,5 @@ public:
             return r + 1;
         else
             return l;
-
     }
 };
